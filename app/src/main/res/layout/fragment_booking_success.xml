@@ -1,0 +1,72 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#080E0D">
+
+    <ImageView
+        android:id="@+id/img_success"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="160dp"
+        android:src="@android:drawable/checkbox_on_background"
+        android:background="#00BFA5"
+        app:tint="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_success_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Booking Confirmed!"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/img_success"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:layout_width="293dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="24dp"
+        android:text="Your appointment has been booked. You can view it in your upcoming appointments."
+        android:textAlignment="center"
+        android:textColor="#999999"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_success_title" />
+
+    <Button
+        android:id="@+id/btn_view_bookings"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="140dp"
+        android:backgroundTint="#D4AF37"
+        android:text="View My Appointments"
+        android:textColor="#080E0D"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_success_title" />
+
+    <TextView
+        android:id="@+id/btn_back_to_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:padding="8dp"
+        android:text="Back to Discover"
+        android:textColor="#00BFA5"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_view_bookings" />
+</androidx.constraintlayout.widget.ConstraintLayout>

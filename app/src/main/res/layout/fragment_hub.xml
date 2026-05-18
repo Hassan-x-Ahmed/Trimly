@@ -1,0 +1,260 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#080E0D">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
+
+            <!-- Header -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#080E0D"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="40dp"
+                android:paddingBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/img_salon_logo"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/ic_circle_gold_border"
+                    android:padding="10dp"
+                    android:src="@android:drawable/ic_menu_agenda"
+                    app:tint="#D4AF37"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_greeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Good evening, Hassan"
+                    android:textColor="#999999"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@id/img_salon_logo"
+                    app:layout_constraintTop_toTopOf="@id/img_salon_logo" />
+
+                <TextView
+                    android:id="@+id/tv_salon_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Élysian Noir Salon"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/img_salon_logo"
+                    app:layout_constraintTop_toBottomOf="@id/tv_greeting" />
+
+                <ImageView
+                    android:id="@+id/btn_notifications"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_circle_gold_border"
+                    android:padding="8dp"
+                    android:src="@android:drawable/ic_dialog_info"
+                    app:tint="#D4AF37"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Revenue & Stations Cards -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:layout_marginTop="24dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:orientation="vertical"
+                    android:background="#1A1A1A"
+                    android:padding="20dp"
+                    android:layout_marginEnd="12dp"
+                    android:elevation="2dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="TODAY'S REVENUE" android:textColor="#D4AF37" android:textSize="10sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="PKR 28,500" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="▲ 14% vs yesterday" android:textColor="#00BFA5" android:textSize="10sp" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="#1A1A1A"
+                    android:padding="20dp"
+                    android:elevation="1dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="ACTIVE STATIONS" android:textColor="#999999" android:textSize="10sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="4 / 6" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="● 2 Barbers Off" android:textColor="#E57373" android:textSize="10sp" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Pending Staff Banner -->
+            <LinearLayout
+                android:id="@+id/banner_pending_staff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#FFF8E1"
+                android:padding="16dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical">
+
+                <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                    android:src="@android:drawable/ic_dialog_alert" app:tint="#F57F17"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="1 Barber application pending your approval"
+                    android:textColor="#F57F17" android:textSize="12sp" android:textStyle="bold"
+                    android:layout_marginStart="12dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="REVIEW" android:textColor="#1A1A1A" android:textSize="12sp" android:textStyle="bold"
+                    android:background="#FFE082" android:paddingHorizontal="12dp" android:paddingVertical="6dp"/>
+            </LinearLayout>
+
+            <!-- Operational Actions -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Operational Actions"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp">
+
+                <LinearLayout
+                    android:id="@+id/btn_action_walkin"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="#CC1A2422"
+                    android:gravity="center"
+                    android:layout_marginEnd="12dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                        android:src="@android:drawable/ic_menu_add" app:tint="#D4AF37"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="New Walk-in" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_action_hours"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="#CC1A2422"
+                    android:gravity="center"
+                    android:layout_marginEnd="12dp">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                        android:src="@android:drawable/ic_menu_recent_history" app:tint="#D4AF37"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Store Hours" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_action_payouts"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="#CC1A2422"
+                    android:gravity="center">
+                    <ImageView android:layout_width="32dp" android:layout_height="32dp"
+                        android:src="@android:drawable/ic_menu_share" app:tint="#D4AF37"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Staff Payouts" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Current Floor Status -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Floor Status"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="24dp"
+                android:background="#CC1A2422"
+                android:padding="16dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="16dp">
+                    <TextView android:layout_width="24dp" android:layout_height="24dp"
+                        android:background="#E8F5E9" android:textColor="#2E7D32" android:text="01"
+                        android:textStyle="bold" android:gravity="center" android:textSize="10sp"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Chair 1: Ali Ahmed" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="14sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Occupied • Shave in progress" android:textColor="#999999" android:textSize="12sp"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="BUSY" android:textColor="#E57373" android:textSize="10sp" android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="24dp" android:layout_height="24dp"
+                        android:background="#E8F5E9" android:textColor="#2E7D32" android:text="02"
+                        android:textStyle="bold" android:gravity="center" android:textSize="10sp"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Chair 2: Zain Siddiqui" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="14sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Ready • Next cut at 09:00 PM" android:textColor="#00BFA5" android:textSize="12sp"/>
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="OPEN" android:textColor="#2E7D32" android:textSize="10sp" android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

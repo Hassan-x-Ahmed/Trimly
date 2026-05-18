@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#080E0D">
+
+    <!-- Small decorative star icon -->
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:src="@android:drawable/btn_star_big_on"
+        app:tint="#D4AF37"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Welcome title -->
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Welcome to Trimly"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_logo" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="How would you like to get started?"
+        android:textColor="#999999"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
+
+    <!-- Client Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="40dp"
+        app:cardBackgroundColor="#CC1A2422"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:strokeColor="#33D4AF37"
+        app:strokeWidth="1dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/icon_client"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_menu_mapmode"
+                app:tint="#D4AF37"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_client_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Book a Service"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/icon_client"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_client_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="Find salons and barbers near you."
+                android:textColor="#B2DFDB"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/arrow_client"
+                app:layout_constraintStart_toEndOf="@id/icon_client"
+                app:layout_constraintTop_toBottomOf="@id/tv_client_title" />
+
+            <ImageView
+                android:id="@+id/arrow_client"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_media_play"
+                app:tint="#D4AF37"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Barber Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_barber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="#CC1A2422"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:strokeColor="#33D4AF37"
+        app:strokeWidth="1dp"
+        app:layout_constraintTop_toBottomOf="@id/card_client">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/icon_barber"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_menu_agenda"
+                app:tint="#D4AF37"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_barber_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="I am a Barber"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/icon_barber"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_barber_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="Manage your clients and schedule."
+                android:textColor="#B2DFDB"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/arrow_barber"
+                app:layout_constraintStart_toEndOf="@id/icon_barber"
+                app:layout_constraintTop_toBottomOf="@id/tv_barber_title" />
+
+            <ImageView
+                android:id="@+id/arrow_barber"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_media_play"
+                app:tint="#D4AF37"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Admin Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="#CC1A2422"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:strokeColor="#33D4AF37"
+        app:strokeWidth="1dp"
+        app:layout_constraintTop_toBottomOf="@id/card_barber">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/icon_admin"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_menu_manage"
+                app:tint="#D4AF37"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_admin_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Register a Salon"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/icon_admin"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_admin_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="Manage your business and staff."
+                android:textColor="#B2DFDB"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/arrow_admin"
+                app:layout_constraintStart_toEndOf="@id/icon_admin"
+                app:layout_constraintTop_toBottomOf="@id/tv_admin_title" />
+
+            <ImageView
+                android:id="@+id/arrow_admin"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_media_play"
+                app:tint="#D4AF37"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

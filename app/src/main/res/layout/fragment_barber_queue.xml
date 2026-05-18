@@ -1,0 +1,136 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050807"> <LinearLayout
+    android:id="@+id/header_barber"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="40dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="24dp"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.15"
+            android:text="STAFF PORTAL"
+            android:textColor="#00BFA5"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Live Work Queue"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="#121615"
+        android:padding="10dp"
+        android:src="@android:drawable/ic_menu_agenda"
+        app:tint="#00BFA5" />
+</LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_active_ticket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="#121615"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp"
+        app:layout_constraintTop_toBottomOf="@id/header_barber">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#1A00BFA5"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="INCOMING"
+                    android:textColor="#00BFA5"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tv_ticket_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Today, 6:30 PM"
+                    android:textColor="#D4AF37"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_client_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Client: Hassan Ahmed"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_service_req"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Executive Skin Fade  •  Rs. 3,500"
+                android:textColor="#AAAAAA"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_complete_cut"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00BFA5"
+                    android:text="Mark Completed"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

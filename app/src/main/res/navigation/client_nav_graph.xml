@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/client_nav_graph"
+    app:startDestination="@id/clientHomeFragment">
+
+    <!--  Bottom nav tabs  -->
+    <fragment
+        android:id="@+id/clientHomeFragment"
+        android:name="com.example.trimly.ui.client.home.HomeFragment"
+        android:label="Discover"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_details"
+            app:destination="@id/salonDetailsFragment" />
+        <action
+            android:id="@+id/action_home_to_search"
+            app:destination="@id/searchResultsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/clientBookingsFragment"
+        android:name="com.example.trimly.ui.client.bookings.BookingsFragment"
+        android:label="My Bookings"
+        tools:layout="@layout/fragment_bookings" />
+
+    <fragment
+        android:id="@+id/clientProfileFragment"
+        android:name="com.example.trimly.ui.client.profile.ClientProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_client_profile" />
+
+    <!--  Flow: Home → Salon Detail  -->
+    <fragment
+        android:id="@+id/salonDetailsFragment"
+        android:name="com.example.trimly.ui.client.salon_details.SalonDetailsFragment"
+        android:label="Salon Details"
+        tools:layout="@layout/fragment_salon_details">
+        <action
+            android:id="@+id/action_details_to_checkout"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+
+    <!--  Flow: Salon Detail → Checkout  -->
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.trimly.ui.client.checkout.CheckoutFragment"
+        android:label="Checkout"
+        tools:layout="@layout/fragment_checkout">
+        <action
+            android:id="@+id/action_checkout_to_success"
+            app:destination="@id/bookingSuccessFragment" />
+    </fragment>
+
+    <!--  Booking Success  -->
+    <fragment
+        android:id="@+id/bookingSuccessFragment"
+        android:name="com.example.trimly.ui.client.booking_success.BookingSuccessFragment"
+        android:label="BookingSuccess"
+        tools:layout="@layout/fragment_booking_success">
+        <action
+            android:id="@+id/action_success_to_bookings"
+            app:destination="@id/clientBookingsFragment" />
+    </fragment>
+
+    <!--  Search Results (opens from Home)  -->
+    <fragment
+        android:id="@+id/searchResultsFragment"
+        android:name="com.example.trimly.ui.client.search_results.SearchResultsFragment"
+        android:label="SearchResults"
+        tools:layout="@layout/fragment_search_results">
+        <action
+            android:id="@+id/action_search_to_salon_detail"
+            app:destination="@id/salonDetailsFragment" />
+    </fragment>
+
+</navigation>

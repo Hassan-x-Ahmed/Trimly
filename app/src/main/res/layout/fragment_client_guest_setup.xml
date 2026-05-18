@@ -1,0 +1,131 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#080E0D">
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ic_circle_gold_border"
+        android:padding="10dp"
+        android:src="@android:drawable/ic_menu_revert"
+        app:tint="#D4AF37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="Complete Guest Profile"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/back_btn"
+        app:layout_constraintStart_toEndOf="@id/back_btn"
+        app:layout_constraintTop_toTopOf="@id/back_btn" />
+
+    <TextView
+        android:id="@+id/avatar_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="Choose your Avatar\n(tappable vector presets):"
+        android:textColor="#D4AF37"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <GridLayout
+        android:id="@+id/avatar_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="15dp"
+        android:columnCount="4"
+        android:rowCount="2"
+        android:alignmentMode="alignMargins"
+        app:layout_constraintTop_toBottomOf="@id/avatar_label">
+
+        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#D4AF37" />
+        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#D4AF37" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#080E0D" />
+        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#D4AF37" />
+        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#D4AF37" />
+        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#D4AF37" />
+        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#D4AF37" />
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/services_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:text="Preferred services (optional):"
+        android:textColor="#D4AF37"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/avatar_grid" />
+
+    <LinearLayout
+        android:id="@+id/chip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/services_label">
+
+        <Button android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="8dp" android:backgroundTint="#CC1A2422" android:text="Men's Styling" android:textColor="#FFFFFF" android:textSize="12sp" />
+        <Button android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="8dp" android:backgroundTint="#CC1A2422" android:text="Coloring" android:textColor="#FFFFFF" android:textSize="12sp" />
+        <Button android:layout_width="wrap_content" android:layout_height="40dp" android:backgroundTint="#D4AF37" android:text="Haircuts" android:textColor="#080E0D" android:textSize="12sp" android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:text="A friendly name for bookings:"
+        android:textColor="#D4AF37"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chip_group" />
+
+    <EditText
+        android:id="@+id/et_guest_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:background="#CC1A2422"
+        android:hint="[Enter Name]"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#999999"
+        android:paddingStart="15dp"
+        app:layout_constraintTop_toBottomOf="@id/name_label" />
+
+    <Button
+        android:id="@+id/btn_finish_guest"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#D4AF37"
+        android:text="Finish &amp; Book"
+        android:textColor="#080E0D"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

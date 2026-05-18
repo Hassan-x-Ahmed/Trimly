@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="checkout_barber_options">
+        <item>Anyone Available</item>
+        <item>Ali Ahmed</item>
+        <item>Zain Siddiqui</item>
+        <item>Nida Ahmed</item>
+    </string-array>
+</resources>

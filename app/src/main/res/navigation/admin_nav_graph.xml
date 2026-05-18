@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_nav_graph"
+    app:startDestination="@id/adminHubFragment">
+
+    <fragment
+        android:id="@+id/adminHubFragment"
+        android:name="com.example.trimly.ui.admin.hub.AdminHubFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_hub" />
+
+    <fragment
+        android:id="@+id/adminStaffFragment"
+        android:name="com.example.trimly.ui.admin.staff.AdminStaffFragment"
+        android:label="Staff"
+        tools:layout="@layout/fragment_staff_manager" />
+
+    <fragment
+        android:id="@+id/adminAnalyticsFragment"
+        android:name="com.example.trimly.ui.admin.analytics.AdminAnalyticsFragment"
+        android:label="Analytics"
+        tools:layout="@layout/fragment_analytics" />
+    <fragment
+        android:id="@+id/adminStoreFragment"
+        android:name="com.example.trimly.ui.admin.store_editor.StoreEditorFragment"
+        android:label="Store"
+        tools:layout="@layout/fragment_store_editor" />
+
+</navigation>

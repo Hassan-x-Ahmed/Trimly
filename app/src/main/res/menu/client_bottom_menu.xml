@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/clientHomeFragment"
+        android:icon="@android:drawable/ic_menu_mapmode"
+        android:title="Discover" />
+    <item
+        android:id="@+id/clientBookingsFragment"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Bookings" />
+    <item
+        android:id="@+id/clientProfileFragment"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Profile" />
+</menu>

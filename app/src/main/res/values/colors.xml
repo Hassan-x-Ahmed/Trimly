@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_charcoal_dark">#17181D</color>
+    <color name="surface_charcoal_light">#292C35</color>
+    <color name="brand_copper">#E09145</color>
+    <color name="text_cream">#FCD9B8</color>
+    <color name="brand_copper_30">#4DE09145</color>
+    <color name="text_cream_70">#B3FCD9B8</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="alert_crimson">#FF5252</color>
+</resources>
