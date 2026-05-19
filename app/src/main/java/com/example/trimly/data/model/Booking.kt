@@ -1,7 +1,14 @@
 package com.example.trimly.data.model
 
-data class Booking(    val uid: String = "",
-                       val name: String = "",
-                       val email: String = "",
-                       val roles: List<String> = listOf("customer"), // Default role for everyone
-                       val profileImageUrl: String? = null)
+data class Booking(
+    val id: String = "",
+    val clientId: String = "",
+    val barberId: String? = null,
+    val salonId: String = "",
+    val serviceIds: List<String> = emptyList(),
+    val date: String = "",
+    val timeSlot: String = "",
+    val status: String = "",
+    val totalPrice: Double = 0.0,
+    val paymentMethod: String = ""
+)

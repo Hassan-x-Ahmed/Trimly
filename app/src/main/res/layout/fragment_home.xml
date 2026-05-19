@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#080E0D">
 
-    <!-- Real Google Maps fragment - top 60% of screen -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map_fragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -15,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottom_sheet"
         app:layout_constraintHeight_percent="0.58" />
-    <!-- Diagonal vignette overlay for cinematic depth -->
+
     <View
         android:id="@+id/vignette_overlay"
         android:layout_width="match_parent"
@@ -23,14 +22,13 @@
         android:background="@drawable/gradient_diagonal_vignette"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
-    <!-- Top gradient fade - ensures header stays readable over map -->
+
     <View
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@drawable/gradient_top_fade"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Bottom gradient transition - smooth fade into dark cards -->
     <View
         android:id="@+id/gradient_overlay"
         android:layout_width="match_parent"
@@ -38,7 +36,6 @@
         android:background="@drawable/gradient_map_to_dark"
         app:layout_constraintBottom_toTopOf="@id/bottom_sheet" />
 
-    <!-- Header -->
     <LinearLayout
         android:id="@+id/top_header"
         android:layout_width="match_parent"
@@ -84,7 +81,6 @@
             app:tint="#D4AF37" />
     </LinearLayout>
 
-    <!-- Floating search bar over map -->
     <androidx.cardview.widget.CardView
         android:id="@+id/search_card"
         android:layout_width="match_parent"
@@ -125,7 +121,6 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Category chips -->
     <HorizontalScrollView
         android:id="@+id/category_scroll"
         android:layout_width="match_parent"
@@ -202,7 +197,6 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <!-- Bottom sheet with salon cards -->
     <LinearLayout
         android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
@@ -235,6 +229,17 @@
                 android:background="#33D4AF37" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tv_no_barbers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scanning for premium barbers..."
+            android:textColor="#888888"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:visibility="gone"
+            android:layout_marginBottom="20dp"/>
+
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -243,177 +248,11 @@
             android:scrollbars="none">
 
             <LinearLayout
+                android:id="@+id/curated_barbers_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal" />
 
-                <!-- Card 1 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    app:cardBackgroundColor="#CC1A2422"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="8dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="18dp">
-
-                        <FrameLayout
-                            android:layout_width="64dp"
-                            android:layout_height="64dp">
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="#1A2422"
-                                android:clipToOutline="true"
-                                android:outlineProvider="background"
-                                android:src="@android:drawable/ic_menu_gallery"
-                                app:cornerRadius="16dp"
-                                app:tint="#D4AF37" />
-                        </FrameLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Élysian Noir"
-                                android:textColor="#FFFFFF"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="Clifton • ★ 4.9 (120+)"
-                                android:textColor="#999999"
-                                android:textSize="12sp" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:gravity="center_vertical">
-
-                                <View
-                                    android:layout_width="7dp"
-                                    android:layout_height="7dp"
-                                    android:background="@drawable/ic_green_dot" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="6dp"
-                                    android:text="Open until 10 PM"
-                                    android:textColor="#00BFA5"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:padding="4dp"
-                            android:src="@android:drawable/ic_menu_directions"
-                            app:tint="#D4AF37" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- Card 2 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
-                    app:cardBackgroundColor="#CC1A2422"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="8dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="18dp">
-
-                        <FrameLayout
-                            android:layout_width="64dp"
-                            android:layout_height="64dp">
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="#1A2422"
-                                android:clipToOutline="true"
-                                android:outlineProvider="background"
-                                android:src="@android:drawable/ic_menu_gallery"
-                                app:cornerRadius="16dp"
-                                app:tint="#D4AF37" />
-                        </FrameLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="The Classic Cut"
-                                android:textColor="#FFFFFF"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:text="DHA Phase 6 • ★ 4.7 (85+)"
-                                android:textColor="#999999"
-                                android:textSize="12sp" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:gravity="center_vertical">
-
-                                <View
-                                    android:layout_width="7dp"
-                                    android:layout_height="7dp"
-                                    android:background="@drawable/ic_green_dot" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="6dp"
-                                    android:text="Open until 9 PM"
-                                    android:textColor="#00BFA5"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:padding="4dp"
-                            android:src="@android:drawable/ic_menu_directions"
-                            app:tint="#D4AF37" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
         </HorizontalScrollView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

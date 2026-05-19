@@ -105,6 +105,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tv_profile_email"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
@@ -211,7 +212,9 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_marginEnd="16dp"
-                            android:src="@drawable/ic_menu_secure" app:tint="#FFFFFF" />
+                            android:src="@drawable/password_icon"
+                            app:tint="#FFFFFF" />
+
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"

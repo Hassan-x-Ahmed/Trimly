@@ -9,18 +9,13 @@
         android:id="@+id/barberScheduleFragment"
         android:name="com.example.trimly.ui.barber.schedule.BarberScheduleFragment"
         android:label="Schedule"
-        tools:layout="@layout/fragment_schedule" />
-
-    <fragment
-        android:id="@+id/barberRequestsFragment"
-        android:name="com.example.trimly.ui.barber.requests.BarberRequestsFragment"
-        android:label="Requests"
-        tools:layout="@layout/fragment_requests" />
-
-    <fragment
-        android:id="@+id/barberProfileFragment"
-        android:name="com.example.trimly.ui.barber.profile.BarberProfileFragment"
-        android:label="Profile"
-        tools:layout="@layout/fragment_barber_profile" />
-
+        tools:layout="@layout/fragment_schedule" /> <fragment
+    android:id="@+id/barberRequestsFragment"
+    android:name="com.example.trimly.ui.barber.requests.BarberRequestsFragment"
+    android:label="Requests"
+    tools:layout="@layout/fragment_requests" /> <fragment
+    android:id="@+id/barberProfileFragment"
+    android:name="com.example.trimly.ui.barber.profile.BarberProfileFragment"
+    android:label="Profile"
+    tools:layout="@layout/fragment_barber_profile" />
 </navigation>

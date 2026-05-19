@@ -131,7 +131,7 @@
 
     <!-- Primary CTA -->
     <Button
-        android:id="@+id/btn_go_to_dashboard"
+        android:id="@+id/btn_finish_setup"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginHorizontal="24dp"

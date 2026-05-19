@@ -59,7 +59,7 @@
         android:inputType="textEmailAddress"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:drawableStart="@android:drawable/ic_menu"
+        android:drawableStart="@drawable/email_icon"
         android:drawablePadding="12dp"
         android:drawableTint="#D4AF37"
         app:layout_constraintTop_toBottomOf="@id/tv_subtitle" />

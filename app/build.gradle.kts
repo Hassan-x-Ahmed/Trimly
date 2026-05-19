@@ -1,7 +1,9 @@
 // sid: 15932
 plugins {
     alias(libs.plugins.android.application)
-
+    //id("org.jetbrains.kotlin.android")
+    //Firebase
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -53,11 +55,19 @@ dependencies {
     // Google Maps Integration
     implementation("com.google.android.gms:play-services-maps:18.2.0")
 
-    // Room Enterprise Persistence (KSP Implementation)
-    // Inside build.gradle.kts (:app) dependencies block
-    //implementation("androidx.room:room-runtime:2.6.1")
-    //implementation("androidx.room:room-ktx:2.6.1")
 
-// Delete any lines saying kapt(...) and keep ONLY this single ksp line:
-    //ksp("androidx.room:room-compiler:2.6.1")
+    // --- FIREBASE CLOUD BRIDGE ---
+    // The BoM ensures all Firebase libraries use compatible versions
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+
+    // The exact Firebase features Trimly needs for our Master Plan:
+    implementation("com.google.firebase:firebase-auth")       // Stage 2: Login & Roles
+    implementation("com.google.firebase:firebase-firestore")  // Stage 3 & 4: NoSQL Database
+    implementation("com.google.firebase:firebase-storage")    // Stage 5: Barber Portfolios Images
+
+    // Firebase Storage for saving image files
+    implementation("com.google.firebase:firebase-storage-ktx")
+
+    // Glide for painting images onto the screen
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

@@ -67,7 +67,6 @@
             android:orientation="vertical"
             android:paddingHorizontal="20dp">
 
-            <!-- Service Summary Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,6 +94,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tv_checkout_service_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Executive Skin Fade"
@@ -103,6 +103,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tv_checkout_salon_info"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
@@ -112,6 +113,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/tv_checkout_service_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rs. 3,500"
@@ -121,7 +123,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Choose Barber Dropdown -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,7 +168,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- SELECT DATE -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -241,36 +241,9 @@
                             android:textSize="20sp"
                             android:textStyle="bold" />
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="70dp"
-                        android:layout_height="85dp"
-                        android:layout_marginEnd="12dp"
-                        android:background="#121212"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="WED"
-                            android:textColor="#777777"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="13"
-                            android:textColor="#FFFFFF"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <!-- AVAILABLE SLOTS -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -313,22 +286,8 @@
                     android:textColor="#00BFA5"
                     android:textSize="12sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_marginBottom="8dp"
-                    android:alpha="0.3"
-                    android:background="#0D1211"
-                    android:gravity="center"
-                    android:paddingVertical="14dp"
-                    android:text="8:00 PM"
-                    android:textColor="#555555"
-                    android:textSize="12sp" />
             </GridLayout>
 
-            <!-- PAYMENT METHOD -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -406,6 +365,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_checkout_total_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rs. 3,500"
@@ -425,5 +385,4 @@
             android:textStyle="bold"
             app:cornerRadius="16dp" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
