@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/img_barber_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_input_beige"
+            android:backgroundTint="#F0EFFF"
+            android:padding="8dp"
+            android:src="@drawable/ic_user"
+            app:tint="#6C5CE7" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/img_barber_avatar"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_perf_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Barber Name"
+                android:textColor="#1A1A1A"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cuts Today"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_perf_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="8 / 10"
+                android:textColor="#1A1A1A"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/progress_perf"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:max="10"
+                android:progress="8"
+                android:progressDrawable="@drawable/bg_input_beige"
+                android:progressTint="#00B894" />
+        </LinearLayout>
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

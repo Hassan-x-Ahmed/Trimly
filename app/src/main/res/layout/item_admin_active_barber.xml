@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:id="@+id/img_drag"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            app:tint="#D1D1D1" />
+
+        <ImageView
+            android:id="@+id/img_active_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@id/img_drag"
+            android:background="#E0E0E0"
+            android:src="@drawable/ic_user" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@id/img_active_avatar"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_active_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Barber Name"
+                android:textColor="#1A1A1A"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_active_chair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chair 1"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_shift_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@id/switch_active"
+            android:background="@drawable/bg_input_beige"
+            android:backgroundTint="#F0EFFF"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="Shift"
+            android:textColor="#6C5CE7"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <Switch
+            android:id="@+id/switch_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:checked="true"
+            android:thumbTint="#6C5CE7"
+            android:trackTint="#D1D1D1" />
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

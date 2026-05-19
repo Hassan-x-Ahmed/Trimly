@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/img_pending_avatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#E0E0E0"
+            android:src="@drawable/ic_user"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_pending_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Barber Name"
+            android:textColor="#1A1A1A"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/img_pending_avatar"
+            app:layout_constraintTop_toTopOf="@id/img_pending_avatar" />
+
+        <TextView
+            android:id="@+id/tv_pending_exp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="X Years Experience"
+            android:textColor="#666666"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/tv_pending_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_pending_name" />
+
+        <TextView
+            android:id="@+id/tv_pending_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Applied on Date"
+            android:textColor="#999999"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/tv_pending_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_pending_exp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_approve"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingHorizontal="12dp"
+            android:text="Approve"
+            android:textColor="#00B894"
+            android:textSize="10sp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="6dp"
+            app:strokeColor="#00B894"
+            app:strokeWidth="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_decline"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:paddingHorizontal="12dp"
+            android:text="Decline"
+            android:textColor="#FF7675"
+            android:textSize="10sp"
+            app:backgroundTint="#FFFFFF"
+            app:cornerRadius="6dp"
+            app:strokeColor="#FF7675"
+            app:strokeWidth="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_approve" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

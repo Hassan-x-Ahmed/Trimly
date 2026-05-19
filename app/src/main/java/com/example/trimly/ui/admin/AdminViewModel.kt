@@ -5,127 +5,101 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.trimly.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
+data class SalonService(val id: String = "", val name: String = "", val price: Int = 0)
+
 class AdminViewModel : ViewModel() {
 
-    private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
+    private val firestore = FirebaseFirestore.getInstance()
+    private val currentAdminId = auth.currentUser?.uid ?: ""
 
-    // 1. Core Salon Data
-    private val _salonName = MutableLiveData<String>()
-    val salonName: LiveData<String> = _salonName
+    val salonName = MutableLiveData<String>("Trimly Studio")
+    val salonAddress = MutableLiveData<String>("123 Main Boulevard, DHA Phase 5")
+    val salonPhone = MutableLiveData<String>("+92 300 1234567")
+    val salonHours = MutableLiveData<String>("10:00 AM - 10:00 PM")
+    val activeChairCount = MutableLiveData<Int>(8)
+    val todayRevenue = MutableLiveData<Double>(18560.0)
 
-    private val _salonAddress = MutableLiveData<String>()
-    val salonAddress: LiveData<String> = _salonAddress
+    private val _barbersList = MutableLiveData<List<User>>()
+    val barbersList: LiveData<List<User>> = _barbersList
 
-    private val _salonHours = MutableLiveData<String>()
-    val salonHours: LiveData<String> = _salonHours
-
-    private val _mySalonId = MutableLiveData<String>()
-
-    // 2. Lists & Stats
-    // Assuming you have data classes for Barber and Service
-    private val _barbersList = MutableLiveData<List<Any>>()
-    val barbersList: LiveData<List<Any>> = _barbersList
-
-    private val _servicesList = MutableLiveData<List<Any>>()
-    val servicesList: LiveData<List<Any>> = _servicesList
-
-    private val _activeChairCount = MutableLiveData<Int>(0)
-    val activeChairCount: LiveData<Int> = _activeChairCount
-
-    // --- INITIALIZATION ---
+    private val _servicesList = MutableLiveData<List<SalonService>>()
+    val servicesList: LiveData<List<SalonService>> = _servicesList
 
     init {
-        fetchSalonData()
+        startRealtimeBarberListener()
+        startRealtimeServiceListener()
     }
 
-    private fun fetchSalonData() {
-        val adminId = auth.currentUser?.uid ?: return
-
-        // Step A: Find the Salon owned by this Admin
-        db.collection("salons").whereEqualTo("ownerId", adminId).limit(1)
-            .get()
-            .addOnSuccessListener { documents ->
-                if (!documents.isEmpty) {
-                    val salonDoc = documents.documents[0]
-                    _mySalonId.value = salonDoc.id
-
-                    _salonName.value = salonDoc.getString("name") ?: ""
-                    _salonAddress.value = salonDoc.getString("address") ?: ""
-                    _salonHours.value = salonDoc.getString("hours") ?: ""
-
-                    // Step B: Fetch the Barbers linked to this salon
-                    fetchBarbersForSalon(salonDoc.id)
-                }
-            }
-            .addOnFailureListener { e ->
-                Log.e("AdminViewModel", "Error fetching salon", e)
-            }
-    }
-
-    private fun fetchBarbersForSalon(salonId: String) {
-        // Query users collection for barbers who have this salonId
-        db.collection("users")
+    private fun startRealtimeBarberListener() {
+        firestore.collection("users")
             .whereEqualTo("role", "barber")
-            .whereEqualTo("salonId", salonId)
-            .addSnapshotListener { snapshot, error ->
-                if (error != null) {
-                    Log.e("AdminViewModel", "Listen failed.", error)
-                    return@addSnapshotListener
-                }
-
-                if (snapshot != null) {
-                    // Map snapshot to your Barber data class here
-                    // val barbers = snapshot.documents.map { it.toObject(Barber::class.java) }
-                    // _barbersList.value = barbers
-                    _activeChairCount.value = snapshot.size()
+            .whereEqualTo("adminId", currentAdminId)
+            .addSnapshotListener { snapshot, _ ->
+                snapshot?.let {
+                    _barbersList.postValue(it.documents.mapNotNull { doc -> doc.toObject(User::class.java) })
                 }
             }
     }
 
-    // --- ACTIONS ---
+    private fun startRealtimeServiceListener() {
+        if(currentAdminId.isEmpty()) return
+        firestore.collection("salons").document(currentAdminId).collection("services")
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) return@addSnapshotListener
 
-    /**
-     * Checks if an email belongs to a registered barber.
-     * If yes, links them to the Admin's salon.
-     */
-    fun addBarberByEmail(email: String, onResult: (Boolean, String) -> Unit) {
-        val currentSalonId = _mySalonId.value
-        if (currentSalonId == null) {
-            onResult(false, "Salon data not loaded yet.")
-            return
+                snapshot?.let {
+                    val list = it.documents.map { doc ->
+                        SalonService(
+                            id = doc.id,
+                            name = doc.getString("name") ?: "",
+                            price = doc.getLong("price")?.toInt() ?: 0
+                        )
+                    }
+                    _servicesList.postValue(list)
+                }
+            }
+    }
+
+    fun addOrUpdateService(service: SalonService, onResult: (Boolean) -> Unit) {
+        val docRef = if (service.id.isEmpty()) {
+            firestore.collection("salons").document(currentAdminId).collection("services").document()
+        } else {
+            firestore.collection("salons").document(currentAdminId).collection("services").document(service.id)
         }
 
-        // 1. Look for the Barber by email
-        db.collection("users")
-            .whereEqualTo("email", email)
-            .whereEqualTo("role", "barber")
-            .get()
+        val data = mapOf(
+            "name" to service.name,
+            "price" to service.price
+        )
+
+        docRef.set(data)
+            .addOnSuccessListener { onResult(true) }
+            .addOnFailureListener { onResult(false) }
+    }
+
+    fun deleteService(serviceId: String, onResult: (Boolean) -> Unit) {
+        firestore.collection("salons").document(currentAdminId).collection("services").document(serviceId)
+            .delete()
+            .addOnSuccessListener { onResult(true) }
+            .addOnFailureListener { onResult(false) }
+    }
+
+    fun addBarberByEmail(email: String, onResult: (Boolean, String) -> Unit) {
+        firestore.collection("users").whereEqualTo("email", email).get()
             .addOnSuccessListener { documents ->
                 if (documents.isEmpty) {
-                    onResult(false, "No registered barber found with this email.")
+                    onResult(false, "No user found.")
                 } else {
-                    // 2. Found them! Update their profile to link to this salon
-                    val barberDocId = documents.documents[0].id
-                    db.collection("users").document(barberDocId)
-                        .update("salonId", currentSalonId)
-                        .addOnSuccessListener {
-                            onResult(true, "Barber successfully added to your salon!")
-                        }
-                        .addOnFailureListener {
-                            onResult(false, "Failed to link barber.")
-                        }
+                    documents.documents[0].reference.update(mapOf("role" to "barber", "adminId" to currentAdminId))
+                        .addOnSuccessListener { onResult(true, "Barber invited!") }
                 }
-            }
-            .addOnFailureListener {
-                onResult(false, "Database error occurred.")
             }
     }
 
-    fun logout() {
-        auth.signOut()
-    }
+    fun logout() = auth.signOut()
 }

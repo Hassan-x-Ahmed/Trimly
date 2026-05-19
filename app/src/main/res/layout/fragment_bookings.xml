@@ -1,6 +1,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#080E0D">
@@ -52,28 +53,30 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scrollbars="none"
         android:clipToPadding="false"
         android:paddingBottom="100dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header_bookings"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-114dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
             android:orientation="vertical"
-            android:paddingHorizontal="20dp"
-            android:layout_marginTop="28dp">
+            android:paddingHorizontal="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:letterSpacing="0.1"
                 android:text="TRIMLY REWARDS"
                 android:textColor="#888888"
                 android:textSize="10sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.1"
-                android:layout_marginBottom="10dp" />
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -91,8 +94,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="28dp"
@@ -103,8 +106,8 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="12dp"
+                            android:layout_weight="1"
                             android:text="Élysian Black Card"
                             android:textColor="#FFFFFF"
                             android:textSize="16sp"
@@ -122,14 +125,42 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="10dp"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="18dp">
+                        android:layout_marginTop="18dp"
+                        android:orientation="horizontal">
 
-                        <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="#D4AF37" android:layout_marginEnd="4dp" />
-                        <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="#D4AF37" android:layout_marginEnd="4dp" />
-                        <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="#D4AF37" android:layout_marginEnd="4dp" />
-                        <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="#D4AF37" android:layout_marginEnd="4dp" />
-                        <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="#333333" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:background="#D4AF37" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:background="#D4AF37" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:background="#D4AF37" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="4dp"
+                            android:layout_weight="1"
+                            android:background="#D4AF37" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="#333333" />
                     </LinearLayout>
 
                     <TextView
@@ -145,25 +176,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="10dp"
+                android:letterSpacing="0.1"
                 android:text="CONFIRMED BOOKINGS"
                 android:textColor="#888888"
                 android:textSize="10sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.1"
-                android:layout_marginTop="36dp"
-                android:layout_marginBottom="10dp" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_no_bookings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
                 android:text="You have no upcoming appointments."
+                android:textAlignment="center"
                 android:textColor="#666666"
                 android:textSize="13sp"
-                android:textAlignment="center"
                 android:textStyle="italic"
-                android:layout_marginBottom="24dp"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/bookings_container"
