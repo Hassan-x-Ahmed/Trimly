@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Full‑screen background image -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:scaleType="centerCrop" />
+    <!--android:src="@drawable/trimly_logo"-->
+    <!-- Dark overlay for readability -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66000000" />
+
+    <!-- Curved top decorative element (optional) -->
+    <View
+        android:id="@+id/curve_top"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/curve_top"
+        app:layout_constraintTop_toTopOf="parent" /> />
+
+    <!-- Content container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="32dp"
+        app:layout_constraintTop_toBottomOf="@id/curve_top"
+        app:layout_constraintBottom_toTopOf="@id/bottom_spacer"
+        app:layout_constraintVertical_bias="0.45">
+
+        <!-- Logo (use your vector) -->
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/trimly_logo"
+            android:contentDescription="Trimly Logo" />
+
+        <!-- App name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TRIMLY"
+            android:textColor="#D4AF37"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.25"
+            android:layout_marginTop="16dp" />
+
+        <!-- Tagline -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your premium grooming, effortlessly booked."
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:alpha="0.9"
+            android:layout_marginTop="8dp" />
+
+        <!-- Three decorative dots -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="#D4AF37"
+                android:layout_marginEnd="8dp"
+                android:alpha="0.4" />
+            <View
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="#D4AF37"
+                android:layout_marginEnd="8dp" />
+            <View
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="#D4AF37" />
+        </LinearLayout>
+
+        <!-- Primary CTA: Create Account -->
+        <Button
+            android:id="@+id/btn_to_signup"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
+            android:text="Create an Account"
+            android:backgroundTint="#D4AF37"
+            android:textColor="#080E0D"
+            android:textStyle="bold"
+            android:elevation="4dp" />
+
+        <!-- Secondary CTA: Login -->
+        <Button
+            android:id="@+id/btn_to_login"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:text="I already have an account"
+            android:backgroundTint="@android:color/transparent"
+            android:textColor="#FFFFFF"
+            android:strokeColor="#33FFFFFF"
+            app:strokeColor="#33FFFFFF"
+            app:strokeWidth="1dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Bottom spacer to push content up a bit -->
+    <View
+        android:id="@+id/bottom_spacer"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

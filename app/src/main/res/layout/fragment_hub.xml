@@ -17,7 +17,6 @@
             android:orientation="vertical"
             android:paddingBottom="40dp">
 
-            <!-- Header -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,7 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Good evening, Hassan"
+                    android:text="Good evening, Admin"
                     android:textColor="#999999"
                     android:textSize="14sp"
                     app:layout_constraintStart_toEndOf="@id/img_salon_logo"
@@ -53,7 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Élysian Noir Salon"
+                    android:text="Loading..."
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -73,7 +72,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- Revenue & Stations Cards -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,8 +91,12 @@
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:text="TODAY'S REVENUE" android:textColor="#D4AF37" android:textSize="10sp" android:textStyle="bold"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="PKR 28,500" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_revenue"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="PKR 0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:text="▲ 14% vs yesterday" android:textColor="#00BFA5" android:textSize="10sp" android:layout_marginTop="4dp"/>
                 </LinearLayout>
@@ -110,14 +112,17 @@
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:text="ACTIVE STATIONS" android:textColor="#999999" android:textSize="10sp" android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tv_stations"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="0 / 0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="4 / 6" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="● 2 Barbers Off" android:textColor="#E57373" android:textSize="10sp" android:layout_marginTop="4dp"/>
+                        android:text="● Floor Status" android:textColor="#E57373" android:textSize="10sp" android:layout_marginTop="4dp"/>
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Pending Staff Banner -->
             <LinearLayout
                 android:id="@+id/banner_pending_staff"
                 android:layout_width="match_parent"
@@ -127,10 +132,9 @@
                 android:padding="16dp"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="16dp"
-                android:gravity="center_vertical">
-
-                <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                    android:src="@android:drawable/ic_dialog_alert" app:tint="#F57F17"/>
+                android:gravity="center_vertical"
+                android:visibility="gone"> <ImageView android:layout_width="24dp" android:layout_height="24dp"
+                android:src="@android:drawable/ic_dialog_alert" app:tint="#F57F17"/>
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1" android:text="1 Barber application pending your approval"
                     android:textColor="#F57F17" android:textSize="12sp" android:textStyle="bold"
@@ -140,7 +144,6 @@
                     android:background="#FFE082" android:paddingHorizontal="12dp" android:paddingVertical="6dp"/>
             </LinearLayout>
 
-            <!-- Operational Actions -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -203,7 +206,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Current Floor Status -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -215,46 +217,27 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="12dp" />
 
+            <TextView
+                android:id="@+id/tv_empty_floor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No barbers currently assigned to the floor."
+                android:textColor="#888888"
+                android:textSize="13sp"
+                android:textAlignment="center"
+                android:textStyle="italic"
+                android:layout_marginBottom="24dp"
+                android:visibility="gone"/>
+
             <LinearLayout
+                android:id="@+id/floor_status_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginHorizontal="24dp"
                 android:background="#CC1A2422"
-                android:padding="16dp">
+                android:padding="16dp" />
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="16dp">
-                    <TextView android:layout_width="24dp" android:layout_height="24dp"
-                        android:background="#E8F5E9" android:textColor="#2E7D32" android:text="01"
-                        android:textStyle="bold" android:gravity="center" android:textSize="10sp"/>
-                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                        android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Chair 1: Ali Ahmed" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="14sp"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Occupied • Shave in progress" android:textColor="#999999" android:textSize="12sp"/>
-                    </LinearLayout>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="BUSY" android:textColor="#E57373" android:textSize="10sp" android:textStyle="bold"/>
-                </LinearLayout>
-
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:orientation="horizontal" android:gravity="center_vertical">
-                    <TextView android:layout_width="24dp" android:layout_height="24dp"
-                        android:background="#E8F5E9" android:textColor="#2E7D32" android:text="02"
-                        android:textStyle="bold" android:gravity="center" android:textSize="10sp"/>
-                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                        android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Chair 2: Zain Siddiqui" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="14sp"/>
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="Ready • Next cut at 09:00 PM" android:textColor="#00BFA5" android:textSize="12sp"/>
-                    </LinearLayout>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="OPEN" android:textColor="#2E7D32" android:textSize="10sp" android:textStyle="bold"/>
-                </LinearLayout>
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

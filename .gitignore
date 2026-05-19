@@ -12,9 +12,9 @@
 /captures
 .externalNativeBuild
 .cxx
+# Secret Files
+app/google-services.json
 local.properties
-
-
 
 
 

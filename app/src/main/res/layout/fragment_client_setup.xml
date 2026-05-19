@@ -46,7 +46,7 @@
     <Button
         android:id="@+id/btn_google"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="56dp"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="40dp"
         android:text="Continue with Google"
@@ -62,9 +62,9 @@
     <Button
         android:id="@+id/btn_guest"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="56dp"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="16dp"
         android:text="Continue as Guest"
         android:textColor="#FFFFFF"
         android:backgroundTint="#0D1211"

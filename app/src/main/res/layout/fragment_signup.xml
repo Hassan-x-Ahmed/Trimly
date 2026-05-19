@@ -4,92 +4,94 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA"
-    android:padding="24dp">
+    android:background="#1A1814"
+    android:padding="28dp">
 
+    <!-- Title -->
     <TextView
         android:id="@+id/tv_signup_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="48dp"
         android:text="Create Account"
-        android:textColor="#333333"
+        android:textColor="#F5E6D3"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Full Name -->
     <EditText
         android:id="@+id/et_signup_name"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        android:background="@android:drawable/editbox_background_normal"
+        android:layout_height="58dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/bg_input_beige"
         android:hint="Full Name"
+        android:textColor="#1A1814"
+        android:textColorHint="#9C8B7E"
         android:inputType="textPersonName"
-        android:paddingStart="16dp"
+        android:paddingStart="18dp"
+        android:drawableStart="@drawable/ic_user"
+        android:drawablePadding="12dp"
+        android:drawableTint="#C8A96E"
         app:layout_constraintTop_toBottomOf="@id/tv_signup_title" />
 
+    <!-- Email -->
     <EditText
         android:id="@+id/et_signup_email"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="58dp"
         android:layout_marginTop="16dp"
-        android:background="@android:drawable/editbox_background_normal"
+        android:background="@drawable/bg_input_beige"
         android:hint="Email Address"
+        android:textColor="#1A1814"
+        android:textColorHint="#9C8B7E"
         android:inputType="textEmailAddress"
-        android:paddingStart="16dp"
+        android:paddingStart="18dp"
+        android:drawableStart="@drawable/email_icon"
+        android:drawablePadding="12dp"
+        android:drawableTint="#C8A96E"
         app:layout_constraintTop_toBottomOf="@id/et_signup_name" />
 
+    <!-- Password -->
     <EditText
         android:id="@+id/et_signup_password"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="58dp"
         android:layout_marginTop="16dp"
-        android:background="@android:drawable/editbox_background_normal"
+        android:background="@drawable/bg_input_beige"
         android:hint="Password"
+        android:textColor="#1A1814"
+        android:textColorHint="#9C8B7E"
         android:inputType="textPassword"
-        android:paddingStart="16dp"
+        android:paddingStart="18dp"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="12dp"
+        android:drawableTint="#C8A96E"
         app:layout_constraintTop_toBottomOf="@id/et_signup_email" />
 
-    <TextView
-        android:id="@+id/tv_role_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="I am joining as a:"
-        android:textColor="#757575"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_signup_password" />
-
-    <Spinner
-        android:id="@+id/spinner_role"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:entries="@array/role_options"
-        app:layout_constraintTop_toBottomOf="@id/tv_role_label" />
-
+    <!-- Sign Up Button (Gold) -->
     <Button
         android:id="@+id/btn_signup"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="#00BFA5"
+        android:layout_height="58dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#D4AF37"
         android:text="Sign Up"
-        android:textColor="@android:color/white"
+        android:textColor="#1A1814"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/spinner_role" />
+        app:layout_constraintTop_toBottomOf="@id/et_signup_password" />
 
+    <!-- Already have an account -->
     <TextView
         android:id="@+id/tv_go_to_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Already have an account? Log In"
-        android:textColor="#00BFA5"
+        android:textColor="#C8A96E"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

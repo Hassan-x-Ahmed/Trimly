@@ -3,54 +3,75 @@ package com.example.trimly.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import com.example.trimly.R
 import com.example.trimly.ui.admin.AdminActivity
 import com.example.trimly.ui.barber.BarberActivity
 import com.example.trimly.ui.client.ClientActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SetupSuccessFragment : Fragment() {
 
-    // Safely grabbing the shared ViewModel
-    private val authViewModel: AuthViewModel by activityViewModels()
+    private val auth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Explicitly inflate the success layout
         return inflater.inflate(R.layout.fragment_setup_success, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // TIP: If this line still shows red, open fragment_setup_success.xml,
-        // check what ID you gave your continue button, and paste that exact ID here!
-        val btnFinish = view.findViewById<Button>(R.id.btn_finish_setup)
-
-        btnFinish?.setOnClickListener {
-            // Safely read the current role, defaulting to "Client" if null
-            val currentRole = authViewModel.userRole.value ?: "Client"
-
-            // Route to the dedicated isolated island based on the role
-            val targetActivity = when (currentRole) {
-                "Admin" -> AdminActivity::class.java
-                "Barber" -> BarberActivity::class.java
-                else -> ClientActivity::class.java
+        // Give the user 2 seconds to see the "Success" screen
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (isAdded) {
+                routeUserToDashboard()
             }
+        }, 2000)
+    }
 
-            // Launch the container island and clear the onboarding history
-            val intent = Intent(requireContext(), targetActivity).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            }
-            startActivity(intent)
-            requireActivity().finish()
+    private fun routeUserToDashboard() {
+        val currentUser = auth.currentUser
+
+        if (currentUser == null) {
+            Toast.makeText(requireContext(), "Critical Error: User lost.", Toast.LENGTH_SHORT).show()
+            return
         }
+
+        // Ask Firebase what role this user just signed up as
+        db.collection("users").document(currentUser.uid).get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    val role = document.getString("role")
+
+                    // Teleport to the correct dashboard
+                    val destinationClass = when (role) {
+                        "admin" -> AdminActivity::class.java
+                        "barber" -> BarberActivity::class.java
+                        else -> ClientActivity::class.java  // Client or any fallback
+                    }
+
+                    val intent = Intent(requireContext(), destinationClass)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    requireActivity().finish()
+
+                } else {
+                    Toast.makeText(requireContext(), "Profile not found.", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Network Error. Please restart app.", Toast.LENGTH_SHORT).show()
+            }
     }
 }

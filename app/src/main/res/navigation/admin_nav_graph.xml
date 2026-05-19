@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/adminStaffFragment"
-        android:name="com.example.trimly.ui.admin.staff.AdminStaffFragment"
+        android:name="com.example.trimly.ui.admin.staff_manager.AdminStaffFragment"
         android:label="Staff"
         tools:layout="@layout/fragment_staff_manager" />
 

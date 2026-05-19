@@ -16,23 +16,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trimly">
 
-        <activity android:name=".ui.auth.AuthActivity" android:exported="true">
+        <!-- Only entry point: AuthActivity loads the auth_nav_graph (Welcome screen) -->
+        <activity
+            android:name=".ui.auth.AuthActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity" android:exported="false" />
-        <activity android:name=".ui.client.ClientActivity" android:exported="false" />
+        <!-- Role container islands -->
+        <activity
+            android:name=".ui.client.ClientActivity"
+            android:exported="false" />
 
-        <activity android:name=".ui.admin.AdminActivity" android:exported="false" />
+        <activity
+            android:name=".ui.admin.AdminActivity"
+            android:exported="false" />
 
-        <activity android:name=".ui.barber.BarberActivity" android:exported="false" />
+        <activity
+            android:name=".ui.barber.BarberActivity"
+            android:exported="false" />
 
+        <!-- Google Maps API key (replace with your own) -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="YOUR_API_KEY_HERE" />
+
     </application>
 
 </manifest>

@@ -55,12 +55,10 @@
         android:alignmentMode="alignMargins"
         app:layout_constraintTop_toBottomOf="@id/avatar_label">
 
-        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#D4AF37" />
-        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#D4AF37" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#080E0D" />
-        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#D4AF37" />
-        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#D4AF37" />
-        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#D4AF37" />
-        <ImageView android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#D4AF37" />
+        <ImageView android:id="@+id/avatar_1" android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#D4AF37" android:src="@android:drawable/ic_menu_camera" android:padding="10dp" app:tint="#080E0D" />
+        <ImageView android:id="@+id/avatar_2" android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_gallery" android:padding="10dp" app:tint="#D4AF37" />
+        <ImageView android:id="@+id/avatar_3" android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_view" android:padding="10dp" app:tint="#D4AF37" />
+        <ImageView android:id="@+id/avatar_4" android:layout_width="60dp" android:layout_height="60dp" android:layout_margin="5dp" android:background="#CC1A2422" android:src="@android:drawable/ic_menu_compass" android:padding="10dp" app:tint="#D4AF37" />
     </GridLayout>
 
     <TextView
@@ -85,9 +83,9 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/services_label">
 
-        <Button android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="8dp" android:backgroundTint="#CC1A2422" android:text="Men's Styling" android:textColor="#FFFFFF" android:textSize="12sp" />
-        <Button android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="8dp" android:backgroundTint="#CC1A2422" android:text="Coloring" android:textColor="#FFFFFF" android:textSize="12sp" />
-        <Button android:layout_width="wrap_content" android:layout_height="40dp" android:backgroundTint="#D4AF37" android:text="Haircuts" android:textColor="#080E0D" android:textSize="12sp" android:textStyle="bold" />
+        <Button android:id="@+id/chip_styling" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="8dp" android:backgroundTint="#CC1A2422" android:text="Men's Styling" android:textColor="#FFFFFF" android:textSize="12sp" />
+        <Button android:id="@+id/chip_coloring" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginEnd="8dp" android:backgroundTint="#CC1A2422" android:text="Coloring" android:textColor="#FFFFFF" android:textSize="12sp" />
+        <Button android:id="@+id/chip_haircuts" android:layout_width="wrap_content" android:layout_height="40dp" android:backgroundTint="#CC1A2422" android:text="Haircuts" android:textColor="#FFFFFF" android:textSize="12sp" />
     </LinearLayout>
 
     <TextView
@@ -114,6 +112,7 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#999999"
         android:paddingStart="15dp"
+        android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@id/name_label" />
 
     <Button

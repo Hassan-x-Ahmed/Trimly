@@ -3,25 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f5fafa">
-
-    <ImageView
-        android:id="@+id/img_google_logo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="100dp"
-        android:src="@android:drawable/ic_menu_myplaces"
-        app:tint="#80cbc4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    android:background="#080E0D"> <ImageView
+    android:id="@+id/img_google_logo"
+    android:layout_width="120dp"
+    android:layout_height="120dp"
+    android:layout_marginTop="120dp"
+    android:src="@android:drawable/ic_menu_myplaces"
+    app:tint="#D4AF37"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="60dp"
-        android:indeterminateTint="#00bfa5"
+        android:indeterminateTint="#00BFA5"
         app:layout_constraintTop_toBottomOf="@id/img_google_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -30,22 +28,24 @@
         android:id="@+id/img_success"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:src="@android:drawable/checkbox_on_background"
-        app:tint="#00bfa5"
-        app:layout_constraintTop_toBottomOf="@id/progress_bar"
+        app:tint="#00BFA5"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/img_google_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:layout_width="250dp"
+        android:id="@+id/tv_status_text"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Profile established instantly using Google account data."
+        android:layout_marginTop="40dp"
+        android:text="Syncing securely with Google..."
         android:textAlignment="center"
-        android:textColor="#333333"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/img_success"
+        app:layout_constraintTop_toBottomOf="@id/progress_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
