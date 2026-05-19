@@ -12,8 +12,5 @@
         android:id="@+id/adminStoreFragment"
         android:icon="@android:drawable/ic_menu_edit"
         android:title="Store" />
-    <item
-        android:id="@+id/adminAnalyticsFragment"
-        android:icon="@android:drawable/ic_menu_sort_by_size"
-        android:title="Analytics" />
+
 </menu>

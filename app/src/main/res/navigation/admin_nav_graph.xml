@@ -18,14 +18,9 @@
         tools:layout="@layout/fragment_staff_manager" />
 
     <fragment
-        android:id="@+id/adminAnalyticsFragment"
-        android:name="com.example.trimly.ui.admin.analytics.AdminAnalyticsFragment"
-        android:label="Analytics"
-        tools:layout="@layout/fragment_analytics" />
-    <fragment
         android:id="@+id/adminStoreFragment"
         android:name="com.example.trimly.ui.admin.store_editor.StoreEditorFragment"
         android:label="Store"
-        tools:layout="@layout/fragment_store_editor" />
+        tools:layout="@layout/fragment_store_profile" />
 
 </navigation>

@@ -1,243 +1,168 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#080E0D">
+    android:background="#F8F9FA"
+    android:fillViewport="true">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:scrollbars="none">
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp">
 
-        <LinearLayout
+        <View
+            android:id="@+id/header_bg"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="#1A1A1A"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="40dp"
+            android:text="Welcome back,"
+            android:textColor="#999999"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_admin_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Hassan"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_alert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="40dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#080E0D"
-                android:paddingHorizontal="24dp"
-                android:paddingTop="40dp"
-                android:paddingBottom="20dp">
-
-                <ImageView
-                    android:id="@+id/img_salon_logo"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/ic_circle_gold_border"
-                    android:padding="10dp"
-                    android:src="@android:drawable/ic_menu_agenda"
-                    app:tint="#D4AF37"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_greeting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="Good evening, Admin"
-                    android:textColor="#999999"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toEndOf="@id/img_salon_logo"
-                    app:layout_constraintTop_toTopOf="@id/img_salon_logo" />
-
-                <TextView
-                    android:id="@+id/tv_salon_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="Loading..."
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/img_salon_logo"
-                    app:layout_constraintTop_toBottomOf="@id/tv_greeting" />
-
-                <ImageView
-                    android:id="@+id/btn_notifications"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/ic_circle_gold_border"
-                    android:padding="8dp"
-                    android:src="@android:drawable/ic_dialog_info"
-                    app:tint="#D4AF37"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="#FFF8E1"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:strokeColor="#FFE082"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_admin_name">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingHorizontal="24dp"
-                android:layout_marginTop="24dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.5"
-                    android:orientation="vertical"
-                    android:background="#1A1A1A"
-                    android:padding="20dp"
-                    android:layout_marginEnd="12dp"
-                    android:elevation="2dp">
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="TODAY'S REVENUE" android:textColor="#D4AF37" android:textSize="10sp" android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/tv_revenue"
-                        android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="PKR 0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="▲ 14% vs yesterday" android:textColor="#00BFA5" android:textSize="10sp" android:layout_marginTop="4dp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:background="#1A1A1A"
-                    android:padding="20dp"
-                    android:elevation="1dp">
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="ACTIVE STATIONS" android:textColor="#999999" android:textSize="10sp" android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/tv_stations"
-                        android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="0 / 0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="● Floor Status" android:textColor="#E57373" android:textSize="10sp" android:layout_marginTop="4dp"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/banner_pending_staff"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="#FFF8E1"
                 android:padding="16dp"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center_vertical"
-                android:visibility="gone"> <ImageView android:layout_width="24dp" android:layout_height="24dp"
-                android:src="@android:drawable/ic_dialog_alert" app:tint="#F57F17"/>
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                    android:layout_weight="1" android:text="1 Barber application pending your approval"
-                    android:textColor="#F57F17" android:textSize="12sp" android:textStyle="bold"
-                    android:layout_marginStart="12dp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="REVIEW" android:textColor="#1A1A1A" android:textSize="12sp" android:textStyle="bold"
-                    android:background="#FFE082" android:paddingHorizontal="12dp" android:paddingVertical="6dp"/>
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You have 3 pending barber applications"
+                    android:textColor="#F57F17"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Review and take action"
+                    android:textColor="#FBC02D"
+                    android:textSize="12sp"/>
             </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Operational Actions"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="12dp" />
+        <TextView
+            android:id="@+id/tv_overview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:text="Today's Overview"
+            android:textColor="#1A1A1A"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_alert" />
+
+        <GridLayout
+            android:id="@+id/grid_stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="16dp"
+            android:columnCount="2"
+            android:rowCount="2"
+            app:layout_constraintTop_toBottomOf="@id/tv_overview_title">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Today's Revenue" android:textColor="#666666" android:textSize="12sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PKR 18,560" android:textColor="#1A1A1A" android:textSize="20sp" android:textStyle="bold" android:layout_marginTop="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+12% vs yesterday" android:textColor="#00B894" android:textSize="10sp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Active Chairs" android:textColor="#666666" android:textSize="12sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8 / 12" android:textColor="#1A1A1A" android:textSize="20sp" android:textStyle="bold" android:layout_marginTop="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="66% Occupied" android:textColor="#6C5CE7" android:textSize="10sp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </GridLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/grid_stats">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingHorizontal="24dp">
-
-                <LinearLayout
-                    android:id="@+id/btn_action_walkin"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:background="#CC1A2422"
-                    android:gravity="center"
-                    android:layout_marginEnd="12dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp"
-                        android:src="@android:drawable/ic_menu_add" app:tint="#D4AF37"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="New Walk-in" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btn_action_hours"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:background="#CC1A2422"
-                    android:gravity="center"
-                    android:layout_marginEnd="12dp">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp"
-                        android:src="@android:drawable/ic_menu_recent_history" app:tint="#D4AF37"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="Store Hours" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btn_action_payouts"
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:background="#CC1A2422"
-                    android:gravity="center">
-                    <ImageView android:layout_width="32dp" android:layout_height="32dp"
-                        android:src="@android:drawable/ic_menu_share" app:tint="#D4AF37"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:text="Staff Payouts" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Current Floor Status"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="12dp" />
-
-            <TextView
-                android:id="@+id/tv_empty_floor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="No barbers currently assigned to the floor."
-                android:textColor="#888888"
-                android:textSize="13sp"
-                android:textAlignment="center"
-                android:textStyle="italic"
-                android:layout_marginBottom="24dp"
-                android:visibility="gone"/>
-
-            <LinearLayout
-                android:id="@+id/floor_status_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginHorizontal="24dp"
-                android:background="#CC1A2422"
-                android:padding="16dp" />
+                android:padding="16dp">
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="8dp">
+                    <ImageView android:id="@+id/img_barber1" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/ic_user" android:background="#E0E0E0"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toEndOf="@id/img_barber1" android:layout_marginStart="12dp" android:text="Ali Raza" android:textColor="#1A1A1A" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toEndOf="@id/img_barber1" android:layout_marginStart="12dp" android:layout_marginTop="20dp" android:text="Chair 1" android:textColor="#999999" android:textSize="12sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:text="● Active" android:textColor="#00B894" android:textStyle="bold" android:textSize="12sp"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        </LinearLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
